@@ -1,0 +1,24 @@
+body {
+  display: flex;
+  height: 100dvh;
+  align-items: center;
+  justify-content: center;
+  background: rgb(29, 31, 36);
+}
+main {
+  display: flex;
+  width: calc(20 * 24px);
+  height: 400px;
+  align-items: flex-end;
+}
+.bar {
+  box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.535);
+  transition: transform 1s cubic-bezier(0.28, 0.64, 0.09, 1.28);
+  position: absolute;
+  background: linear-gradient(red, rgb(42, 3, 3));
+  border-radius: 10px 10px 0 0;
+  width: 18px;
+}
+test {
+  background: rgb(255, 133, 133);
+}
