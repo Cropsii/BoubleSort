@@ -7,7 +7,7 @@ body {
 }
 main {
   display: flex;
-  width: calc(20 * 24px);
+  width: calc(12 * 24px);
   height: 400px;
   align-items: flex-end;
 }

@@ -17,7 +17,7 @@ function createRadomNums(start, end, amount) {
   }
   return list;
 }
-let list = createRadomNums(1, 20, 20);
+let list = createRadomNums(1, 15, 12);
 /**
  *
  * @param {HTMLElement} el
@@ -43,7 +43,7 @@ async function startSort(list) {
     for (let j = 0; j < list.length - i - 1; j++) {
       if (list[j] > list[j + 1]) {
         swap(j, j + 1);
-        await sleep(100);
+        await sleep(600);
       }
     }
   }
