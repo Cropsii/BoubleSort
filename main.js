@@ -7,7 +7,9 @@ let list = createRadomNums(1, 12, 12);
 let stopSorting = false;
 let isSorting = false;
 
+// ==render preview==
 render(mainEl, list);
+// ==================
 
 /**
  *
@@ -31,14 +33,13 @@ function createRadomNums(start, end, amount) {
 slider.addEventListener("input", (e) => {
   stopSorting = true;
   value = e.target.value;
-  document.documentElement.style.setProperty("--amount", value); // box станет шире
+  document.documentElement.style.setProperty("--amount", value);
 
   list = createRadomNums(1, 15, value);
   render(mainEl, list);
 });
 
 /**
- *
  * @param {HTMLElement} el
  * @param {Array} list
  */
@@ -107,6 +108,7 @@ function swap(i, j) {
     left.style.zIndex = 0;
   }, 300);
 }
+
 start.addEventListener("click", () => {
   startSort(list);
 });
