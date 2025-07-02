@@ -1,9 +1,14 @@
 const mainEl = document.querySelector("main");
 const slider = document.getElementById("slider");
 const start = document.getElementById("start");
+const out = document.getElementById("output");
+const outList = document.getElementById("outList");
 const unit = 24;
 let value = 10;
 let list = createRadomNums(1, 12, 12);
+out.innerText = list;
+outList.innerText = list;
+
 let stopSorting = false;
 let isSorting = false;
 
@@ -23,7 +28,7 @@ function createRadomNums(start, end, amount) {
     throw new Error("start cant be more then end");
   }
   for (let i = 0; i < amount; i++) {
-    list[i] = Math.floor(Math.random() * (end - start + 1) + 1);
+    list[i] = Math.floor(Math.random() * (end - start + 1)) + start;
   }
   return list;
 }
@@ -34,8 +39,8 @@ slider.addEventListener("input", (e) => {
   stopSorting = true;
   value = e.target.value;
   document.documentElement.style.setProperty("--amount", value);
-
   list = createRadomNums(1, 15, value);
+  out.innerText = list;
   render(mainEl, list);
 });
 
@@ -94,6 +99,7 @@ function sleep(ms) {
  */
 function swap(i, j) {
   [list[i], list[j]] = [list[j], list[i]];
+  outList.innerText = list;
   const left = document.getElementById(`${i}`);
   const right = document.getElementById(`${j}`);
 

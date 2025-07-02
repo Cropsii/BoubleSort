@@ -17,14 +17,6 @@ main {
   height: 400px;
   align-items: flex-end;
 }
-#start {
-  border-radius: 1rem;
-  padding-inline: 1rem;
-  transition: 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-#start:hover {
-  scale: 1.1;
-}
 .bar {
   box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.535);
   transition: transform 1s cubic-bezier(0.28, 0.64, 0.09, 1.28);
@@ -32,4 +24,18 @@ main {
   background: linear-gradient(red, rgb(42, 3, 3));
   border-radius: 10px 10px 0 0;
   width: 18px;
+}
+#output,
+#outList {
+  padding: 0.5rem;
+  background: white;
+  border-radius: 10px;
+}
+#start {
+  border-radius: 1rem;
+  padding-inline: 1rem;
+  transition: 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+#start:hover {
+  scale: 1.1;
 }
