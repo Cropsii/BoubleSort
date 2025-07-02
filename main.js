@@ -1,5 +1,13 @@
 const mainEl = document.querySelector("main");
+const slider = document.getElementById("slider");
+const start = document.getElementById("start");
 const unit = 24;
+let value = 10;
+let list = createRadomNums(1, 12, 12);
+let stopSorting = false;
+let isSorting = false;
+
+render(mainEl, list);
 
 /**
  *
@@ -17,7 +25,18 @@ function createRadomNums(start, end, amount) {
   }
   return list;
 }
-let list = createRadomNums(1, 15, 12);
+/**
+ * @param {EventTarget} e
+ */
+slider.addEventListener("input", (e) => {
+  stopSorting = true;
+  value = e.target.value;
+  document.documentElement.style.setProperty("--amount", value); // box станет шире
+
+  list = createRadomNums(1, 15, value);
+  render(mainEl, list);
+});
+
 /**
  *
  * @param {HTMLElement} el
@@ -25,6 +44,7 @@ let list = createRadomNums(1, 15, 12);
  */
 function render(el, list) {
   el.innerHTML = "";
+
   for (let i = 0; i < list.length; i++) {
     const div = document.createElement("div");
     div.id = i;
@@ -39,14 +59,24 @@ function render(el, list) {
  * @param {Array} list
  */
 async function startSort(list) {
+  if (isSorting) {
+    return;
+  }
+  isSorting = true;
+  stopSorting = false;
   for (let i = 0; i < list.length; i++) {
     for (let j = 0; j < list.length - i - 1; j++) {
+      if (stopSorting) {
+        isSorting = false;
+        return;
+      }
       if (list[j] > list[j + 1]) {
         swap(j, j + 1);
-        await sleep(600);
+        await sleep(400);
       }
     }
   }
+  isSorting = false;
 }
 /**
  *
@@ -77,6 +107,6 @@ function swap(i, j) {
     left.style.zIndex = 0;
   }, 300);
 }
-
-render(mainEl, list);
-startSort(list);
+start.addEventListener("click", () => {
+  startSort(list);
+});
