@@ -5,6 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
+
     <title>Bubble Sort</title>
     <link
       rel="icon"
@@ -12,10 +14,10 @@
       href="https://www.svgrepo.com/show/77823/bar-chart.svg"
     />
     <!-- для превью -->
-    <meta property="og:title" content="Визуализация Bubble Sort" />
+    <meta property="og:title" content="Визуализация Sort" />
     <meta
       property="og:description"
-      content="Смотри, как работает пузырьковая сортировка!"
+      content="Смотри, как работает сортировка!"
     />
     <meta
       property="og:image"
@@ -30,12 +32,41 @@
 
   <body>
     <main></main>
+    <div id="controls">
+      <div>
+        <label>Поиск по значению:</label>
+        <input type="number" id="findValue" placeholder="Введите число" />
+        <button id="btnFindValue">Найти</button>
+      </div>
+
+      <div>
+        <label>Поиск по индексу:</label>
+        <input type="number" id="findIndex" placeholder="Введите индекс" />
+        <button id="btnFindIndex">Найти</button>
+      </div>
+
+      <div>
+        <label>Добавить элемент:</label>
+        <input type="number" id="addValue" placeholder="Введите число" />
+        <button id="btnAdd">Добавить</button>
+      </div>
+
+      <div>
+        <label>Удалить по индексу:</label>
+        <input type="number" id="removeIndex" placeholder="Введите индекс" />
+        <button id="btnRemove">Удалить</button>
+      </div>
+      <div>
+        <label>Найти k-ое по порядку число:</label>
+        <input type="number" id="findKth" placeholder="Введите k" />
+        <button id="btnFindKth">Найти</button>
+      </div>
+    </div>
     <div id="sliderContainer">
       <input type="range" min="2" max="15" value="10" id="slider" />
     </div>
     <div id="output"></div>
     <div id="outList"></div>
-    <button id="start">start</button>
-    <script src="main.js"></script>
+    <button id="start" class="controls">start</button>
   </body>
 </html>
